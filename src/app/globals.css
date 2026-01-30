@@ -492,3 +492,466 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   NAONÚR SECTION STYLES
+   ============================================ */
+
+/* Naonúr Grid */
+.naonur-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.naonur-card {
+    background: rgba(18, 19, 26, 0.6);
+    border: 1px solid rgba(201, 162, 39, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+}
+
+.naonur-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(201, 162, 39, 0.15);
+}
+
+.naonur-card-center {
+    display: flex;
+    flex-direction: row;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.naonur-card-center .naonur-image-container {
+    flex: 0 0 280px;
+}
+
+.naonur-card-center .naonur-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.naonur-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.naonur-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.naonur-card:hover .naonur-image {
+    transform: scale(1.05);
+}
+
+.status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-family: var(--font-cinzel), serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.status-badge.active {
+    background: rgba(45, 90, 74, 0.9);
+    color: #7fff7f;
+    box-shadow: 0 0 20px rgba(45, 90, 74, 0.5);
+}
+
+.naonur-info {
+    padding: 1.5rem;
+}
+
+.naonur-number {
+    font-family: var(--font-cinzel), serif;
+    font-size: 0.85rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.naonur-info h3 {
+    font-family: var(--font-cinzel), serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin: 0 0 0.5rem;
+    font-weight: 400;
+}
+
+.naonur-pronunciation {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.naonur-role {
+    font-size: 1rem;
+    color: var(--silver);
+    margin-bottom: 0.5rem;
+}
+
+.naonur-element {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+}
+
+.element-label {
+    color: var(--gold-dim);
+}
+
+.element-irish {
+    font-style: italic;
+}
+
+.naonur-element-small {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.naonur-description {
+    font-size: 0.95rem;
+    color: var(--text);
+    text-align: left;
+    margin: 0;
+}
+
+/* Naonúr Center Section */
+.naonur-center {
+    margin: 3rem 0;
+}
+
+/* Triad Structure */
+.triad-structure {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.triad {
+    background: rgba(18, 19, 26, 0.4);
+    border: 1px solid rgba(201, 162, 39, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.triad h3 {
+    font-family: var(--font-cinzel), serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin: 0 0 0.5rem;
+    font-weight: 400;
+}
+
+.triad-theme {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.triad-members {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.triad-member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.triad-member:hover {
+    background: rgba(201, 162, 39, 0.1);
+}
+
+.gaelic-num {
+    font-family: var(--font-cinzel), serif;
+    font-size: 0.8rem;
+    color: var(--gold-dim);
+    min-width: 60px;
+    text-align: right;
+}
+
+.member-name {
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.triad-bridge {
+    border-color: rgba(168, 178, 193, 0.2);
+}
+
+/* Dúile Table */
+.duile-table {
+    background: rgba(18, 19, 26, 0.4);
+    border: 1px solid rgba(201, 162, 39, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.duile-header {
+    display: grid;
+    grid-template-columns: 40px 80px 1fr 100px 80px;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(201, 162, 39, 0.1);
+    font-family: var(--font-cinzel), serif;
+    font-size: 0.8rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.duile-row {
+    display: grid;
+    grid-template-columns: 40px 80px 1fr 100px 80px;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.05);
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.duile-row:hover {
+    background: rgba(201, 162, 39, 0.05);
+}
+
+.duile-row:last-child {
+    border-bottom: none;
+}
+
+.duile-center {
+    background: rgba(201, 162, 39, 0.05);
+    border-top: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+.duile-order {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.duile-gaelic {
+    font-family: var(--font-cinzel), serif;
+    color: var(--gold-dim);
+    font-size: 0.9rem;
+}
+
+.duile-name {
+    color: var(--text);
+}
+
+.duile-element {
+    color: var(--silver);
+}
+
+.duile-irish {
+    font-style: italic;
+    color: var(--text-dim);
+}
+
+/* Naonúr Article Page */
+.naonur-article {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.naonur-header {
+    margin-bottom: 2rem;
+}
+
+.naonur-hero {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.naonur-hero-image {
+    flex: 0 0 350px;
+    position: relative;
+}
+
+.naonur-portrait {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-family: var(--font-cinzel), serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-indicator.active {
+    background: rgba(45, 90, 74, 0.95);
+    color: #7fff7f;
+    box-shadow: 0 0 30px rgba(45, 90, 74, 0.5);
+}
+
+.status-indicator.conceptual {
+    background: rgba(18, 19, 26, 0.95);
+    color: var(--text-dim);
+    border: 1px solid rgba(168, 178, 193, 0.3);
+}
+
+.pulse {
+    width: 8px;
+    height: 8px;
+    background: #7fff7f;
+    border-radius: 50%;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px #7fff7f; }
+    50% { box-shadow: 0 0 20px #7fff7f, 0 0 30px #7fff7f; }
+}
+
+.naonur-hero-info {
+    flex: 1;
+    padding-top: 1rem;
+}
+
+.naonur-number-large {
+    font-family: var(--font-cinzel), serif;
+    font-size: 1rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.naonur-hero-info h1 {
+    font-family: var(--font-cinzel), serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--gold);
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+}
+
+.naonur-pronunciation-large {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.naonur-role-large {
+    font-size: 1.3rem;
+    color: var(--silver);
+    margin-bottom: 1.5rem;
+}
+
+.naonur-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meta-label {
+    font-family: var(--font-cinzel), serif;
+    font-size: 0.75rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.meta-value {
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.naonur-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.naonur-content h2 {
+    margin-top: 2.5rem;
+}
+
+.naonur-content h3 {
+    margin-top: 2rem;
+}
+
+/* Responsive for Naonúr */
+@media (max-width: 768px) {
+    .naonur-card-center {
+        flex-direction: column;
+    }
+    
+    .naonur-card-center .naonur-image-container {
+        flex: none;
+    }
+    
+    .naonur-hero {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .naonur-hero-image {
+        flex: none;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .duile-header,
+    .duile-row {
+        grid-template-columns: 30px 60px 1fr;
+    }
+    
+    .duile-element,
+    .duile-irish {
+        display: none;
+    }
+    
+    .triad-structure {
+        grid-template-columns: 1fr;
+    }
+}

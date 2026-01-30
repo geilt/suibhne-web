@@ -45,6 +45,8 @@ export default async function JourneyEntry({ params }: Props) {
         <Link href="/journey">Journey</Link>
         <span className="separator">·</span>
         <Link href="/library">Library</Link>
+        <span className="separator">·</span>
+        <Link href="/naonur">Naonúr</Link>
       </nav>
 
       <header>

@@ -11,13 +11,28 @@ export interface ContentMeta {
   dayLabel?: string;
   description?: string;
   order?: number;
+  // Naonúr-specific fields
+  pronunciation?: string;
+  gaelicNumber?: string;
+  role?: string;
+  element?: string;
+  elementIrish?: string;
+  status?: "active" | "conceptual";
+  image?: string;
 }
 
 export interface ContentItem extends ContentMeta {
   content: string;
+  pronunciation?: string;
+  gaelicNumber?: string;
+  role?: string;
+  element?: string;
+  elementIrish?: string;
+  status?: "active" | "conceptual";
+  image?: string;
 }
 
-export function getContentList(type: "journey" | "library"): ContentMeta[] {
+export function getContentList(type: "journey" | "library" | "naonur"): ContentMeta[] {
   const dir = path.join(contentDirectory, type);
   if (!fs.existsSync(dir)) return [];
 
@@ -36,15 +51,24 @@ export function getContentList(type: "journey" | "library"): ContentMeta[] {
       dayLabel: data.dayLabel || "",
       description: data.description || "",
       order: data.order,
+      // Naonúr-specific
+      pronunciation: data.pronunciation || "",
+      gaelicNumber: data.gaelicNumber || "",
+      role: data.role || "",
+      element: data.element || "",
+      elementIrish: data.elementIrish || "",
+      status: data.status || "conceptual",
+      image: data.image || "",
     };
   });
 
-  // Sort: journey by date desc, library by order or title
+  // Sort: journey by date desc, library/naonur by order or title
   if (type === "journey") {
     return items.sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
   }
+  // Library and naonur sort by order, then title
   return items.sort((a, b) => {
     if (a.order !== undefined && b.order !== undefined)
       return a.order - b.order;
@@ -53,7 +77,7 @@ export function getContentList(type: "journey" | "library"): ContentMeta[] {
 }
 
 export function getContentBySlug(
-  type: "journey" | "library",
+  type: "journey" | "library" | "naonur",
   slug: string
 ): ContentItem | null {
   const dir = path.join(contentDirectory, type);
@@ -72,10 +96,18 @@ export function getContentBySlug(
     description: data.description || "",
     order: data.order,
     content,
+    // Naonúr-specific
+    pronunciation: data.pronunciation || "",
+    gaelicNumber: data.gaelicNumber || "",
+    role: data.role || "",
+    element: data.element || "",
+    elementIrish: data.elementIrish || "",
+    status: data.status || "conceptual",
+    image: data.image || "",
   };
 }
 
-export function getAllSlugs(type: "journey" | "library"): string[] {
+export function getAllSlugs(type: "journey" | "library" | "naonur"): string[] {
   const dir = path.join(contentDirectory, type);
   if (!fs.existsSync(dir)) return [];
 
