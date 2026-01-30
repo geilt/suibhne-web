@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-cinzel",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Buile Suibhne — The Mad King's Digital Perch",
@@ -29,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${cinzel.variable} ${cormorant.variable}`}>
       <body>
         <div className="atmosphere"></div>
         <div className="feathers">
