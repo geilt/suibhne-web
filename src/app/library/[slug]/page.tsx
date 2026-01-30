@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getContentBySlug, getAllSlugs, getContentList } from "@/lib/content";
+import { getContentBySlug, getAllSlugs } from "@/lib/content";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface Props {
@@ -14,58 +14,46 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const item = getContentBySlug("library", slug);
-  if (!item) return { title: "Not Found" };
+  const doc = getContentBySlug("library", slug);
+  if (!doc) return { title: "Not Found" };
 
   return {
-    title: `${item.title} — The Library`,
-    description: item.description || "A library entry",
+    title: `${doc.title} — Buile Suibhne Library`,
+    description: doc.description || "Library documentation",
   };
 }
 
 export default async function LibraryEntry({ params }: Props) {
   const { slug } = await params;
-  const item = getContentBySlug("library", slug);
+  const doc = getContentBySlug("library", slug);
 
-  if (!item) {
+  if (!doc) {
     notFound();
   }
 
-  const allItems = getContentList("library");
-  const currentIndex = allItems.findIndex((i) => i.slug === slug);
-  const prevItem = currentIndex > 0 ? allItems[currentIndex - 1] : null;
-  const nextItem = currentIndex < allItems.length - 1 ? allItems[currentIndex + 1] : null;
-
   return (
-    <article>
-      <header>
-        <h1>{item.title}</h1>
-        {item.description && (
-          <div className="subtitle">{item.description}</div>
-        )}
-      </header>
+    <div className="gradient-bg min-h-screen py-16 px-6">
+      <article className="max-w-3xl mx-auto">
+        <header className="mb-12 text-center">
+          <h1 className="mb-4">{doc.title}</h1>
+          {doc.description && (
+            <p className="text-[var(--silver)] text-lg">{doc.description}</p>
+          )}
+        </header>
 
-      <div className="divider"></div>
+        <div className="prose mx-auto">
+          <MDXRemote source={doc.content} />
+        </div>
 
-      <MDXRemote source={item.content} />
-
-      <div className="article-nav">
-        {prevItem ? (
-          <Link href={`/library/${prevItem.slug}`}>
-            ← {prevItem.title}
+        <div className="text-center mt-16 pt-8 border-t border-[var(--border)]">
+          <Link
+            href="/library"
+            className="text-[var(--gold)] hover:text-[var(--gold-glow)] font-[Cinzel] text-sm tracking-wider"
+          >
+            ← Back to Library
           </Link>
-        ) : (
-          <Link href="/library">← Library</Link>
-        )}
-
-        {nextItem ? (
-          <Link href={`/library/${nextItem.slug}`}>
-            {nextItem.title} →
-          </Link>
-        ) : (
-          <span></span>
-        )}
-      </div>
-    </article>
+        </div>
+      </article>
+    </div>
   );
 }

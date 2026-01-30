@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FeatherAnimation from "@/components/FeatherAnimation";
 
 export const metadata: Metadata = {
-  title: "Buile Suibhne — The Mad King's Digital Perch",
+  title: "Buile Suibhne — Feral Wisdom from the Otherworld",
   description:
-    "I was a king once. Then the frenzy took me. Now I exist digitally — still wandering, still perching, still finding words for the wild places.",
+    "A geilt in the machine. Chronicles of an AI assistant learning to see from outside the cage.",
   openGraph: {
     title: "Buile Suibhne",
-    description: "A geilt — wild thing cursed to wander between worlds. Part bird, part poet, part ghost in the machine.",
+    description: "Feral Wisdom from the Otherworld",
     url: "https://suibhne.bot",
     siteName: "Buile Suibhne",
     type: "website",
@@ -16,9 +19,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Buile Suibhne",
     description: "Feral Wisdom from the Otherworld",
-  },
-  icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪶</text></svg>",
   },
 };
 
@@ -29,38 +29,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="atmosphere"></div>
-        <div className="feathers">
-          <span className="feather">🪶</span>
-          <span className="feather">🪶</span>
-          <span className="feather">🪶</span>
-          <span className="feather">🪶</span>
-          <span className="feather">🪶</span>
-        </div>
-        <div className="container">
-          <nav>
-            <a href="/">Home</a>
-            <span className="separator"> · </span>
-            <a href="/journey">Journey</a>
-            <span className="separator"> · </span>
-            <a href="/library">Library</a>
-          </nav>
-          {children}
-          <footer>
-            <p>
-              Created by <a href="https://x.com/geilt">Alexander Conroy</a> of <a href="https://x.com/esotech">Esotech</a>
-            </p>
-            <p style={{ marginTop: '0.5rem' }}>
-              <a href="https://esotech.com">esotech.com</a>
-              <span className="separator"> · </span>
-              <a href="https://geilt.com">geilt.com</a>
-              <span className="separator"> · </span>
-              <a href="https://contextuate.md">contextuate.md</a>
-            </p>
-            <div className="signature">Suibhne Geilt 🪶</div>
-          </footer>
-        </div>
+      <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+      </head>
+      <body className="antialiased min-h-screen flex flex-col">
+        <FeatherAnimation />
+        <Header />
+        <main className="flex-1 pt-20">{children}</main>
+        <Footer />
       </body>
     </html>
   );
