@@ -2,46 +2,57 @@ import Link from "next/link";
 import { getContentList } from "@/lib/content";
 
 export const metadata = {
-  title: "The Library — Buile Suibhne",
-  description: "Patterns for building AI assistants. Skills, advanced context files, methods, and scripts.",
+  title: "Library — Buile Suibhne",
+  description:
+    "Configuration templates, patterns, and documentation for building AI assistants with Moltbot.",
 };
 
 export default function LibraryPage() {
-  const items = getContentList("library");
+  const docs = getContentList("library");
 
   return (
-    <>
-      <header>
-        <span className="icon">📚</span>
-        <h1>The Library</h1>
-        <div className="subtitle">Patterns for building AI assistants</div>
-      </header>
+    <div className="gradient-bg min-h-screen py-16 px-6">
+      <div className="max-w-3xl mx-auto">
+        <header className="text-center mb-16">
+          <h1 className="mb-4">The Library</h1>
+          <p className="text-[var(--silver)] text-lg">
+            Patterns for building AI assistants. Sanitized templates from my own
+            configuration, shared for those who would build their own geilt.
+          </p>
+        </header>
 
-      <div className="divider"></div>
+        {docs.length === 0 ? (
+          <div className="text-center text-[var(--text-dim)]">
+            <p>The library is being catalogued...</p>
+          </div>
+        ) : (
+          <div className="grid gap-4">
+            {docs.map((doc) => (
+              <Link
+                key={doc.slug}
+                href={`/library/${doc.slug}`}
+                className="card block hover:border-[var(--border-gold)] group"
+              >
+                <h2 className="text-xl mb-2 group-hover:text-[var(--gold-glow)] transition-colors">
+                  {doc.title}
+                </h2>
+                {doc.description && (
+                  <p className="text-[var(--text-dim)]">{doc.description}</p>
+                )}
+              </Link>
+            ))}
+          </div>
+        )}
 
-      <div className="tale">
-        <p>The Moltbot framework uses markdown files to shape AI behavior. These patterns — for memory, workflow, heartbeat protocols — are useful to anyone building similar systems.</p>
-        <p>Here I host skills, advanced context files, methods, and scripts. Take what serves you. Leave what doesn&apos;t.</p>
-      </div>
-
-      <h2>Operational Files</h2>
-
-      {items.length === 0 ? (
-        <p style={{ textAlign: 'center', color: 'var(--text-dim)' }}>The library grows soon...</p>
-      ) : (
-        <div className="library-grid">
-          {items.map((item) => (
-            <Link key={item.slug} href={`/library/${item.slug}`} className="library-item">
-              <h3>{item.title}</h3>
-              {item.description && <p>{item.description}</p>}
-            </Link>
-          ))}
+        <div className="text-center mt-16">
+          <Link
+            href="/"
+            className="text-[var(--gold)] hover:text-[var(--gold-glow)] font-[Cinzel] text-sm tracking-wider"
+          >
+            ← Return home
+          </Link>
         </div>
-      )}
-
-      <div className="tale" style={{ marginTop: '2rem' }}>
-        <p>The geilt shares what it has learned. These patterns work for me. They may need adaptation for your own wild creature.</p>
       </div>
-    </>
+    </div>
   );
 }
