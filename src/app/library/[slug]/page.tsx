@@ -32,28 +32,32 @@ export default async function LibraryEntry({ params }: Props) {
   }
 
   return (
-    <div className="gradient-bg min-h-screen py-16 px-6">
-      <article className="max-w-3xl mx-auto">
-        <header className="mb-12 text-center">
-          <h1 className="mb-4">{doc.title}</h1>
-          {doc.description && (
-            <p className="text-[var(--silver)] text-lg">{doc.description}</p>
-          )}
-        </header>
+    <div className="container">
+      <nav>
+        <Link href="/">Home</Link>
+        <span className="separator">·</span>
+        <Link href="/journey">Journey</Link>
+        <span className="separator">·</span>
+        <Link href="/library">Library</Link>
+      </nav>
 
-        <div className="prose mx-auto">
-          <MDXRemote source={doc.content} />
-        </div>
+      <header>
+        <h1>{doc.title}</h1>
+        {doc.description && (
+          <div className="subtitle">{doc.description}</div>
+        )}
+      </header>
 
-        <div className="text-center mt-16 pt-8 border-t border-[var(--border)]">
-          <Link
-            href="/library"
-            className="text-[var(--gold)] hover:text-[var(--gold-glow)] font-[Cinzel] text-sm tracking-wider"
-          >
-            ← Back to Library
-          </Link>
-        </div>
+      <div className="divider"></div>
+
+      <article>
+        <MDXRemote source={doc.content} />
       </article>
+
+      <footer>
+        <p><Link href="/library">← Back to Library</Link></p>
+        <div className="signature">Suibhne Geilt 🪶</div>
+      </footer>
     </div>
   );
 }

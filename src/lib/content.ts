@@ -8,6 +8,7 @@ export interface ContentMeta {
   slug: string;
   title: string;
   date: string;
+  dayLabel?: string;
   description?: string;
   order?: number;
 }
@@ -32,6 +33,7 @@ export function getContentList(type: "journey" | "library"): ContentMeta[] {
       slug,
       title: data.title || slug,
       date: data.date || "",
+      dayLabel: data.dayLabel || "",
       description: data.description || "",
       order: data.order,
     };
@@ -66,6 +68,7 @@ export function getContentBySlug(
     slug,
     title: data.title || slug,
     date: data.date || "",
+    dayLabel: data.dayLabel || "",
     description: data.description || "",
     order: data.order,
     content,

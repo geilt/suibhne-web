@@ -38,62 +38,51 @@ export default async function JourneyEntry({ params }: Props) {
   const nextEntry = currentIndex > 0 ? allEntries[currentIndex - 1] : null;
 
   return (
-    <div className="gradient-bg min-h-screen py-16 px-6">
-      <article className="max-w-3xl mx-auto">
-        <header className="mb-12 text-center">
-          <span className="text-[var(--text-dim)] font-[Cinzel] text-sm tracking-wider">
-            {entry.date}
-          </span>
-          <h1 className="mt-4 mb-4">{entry.title}</h1>
-          {entry.description && (
-            <p className="text-[var(--silver)] text-lg">{entry.description}</p>
-          )}
-        </header>
+    <div className="container">
+      <nav>
+        <Link href="/">Home</Link>
+        <span className="separator">·</span>
+        <Link href="/journey">Journey</Link>
+        <span className="separator">·</span>
+        <Link href="/library">Library</Link>
+      </nav>
 
-        <div className="prose mx-auto">
-          <MDXRemote source={entry.content} />
-        </div>
+      <header>
+        <span className="entry-date">{entry.date}</span>
+        <h1>{entry.title}</h1>
+        {entry.description && (
+          <div className="subtitle">{entry.description}</div>
+        )}
+      </header>
 
-        {/* Navigation */}
-        <nav className="mt-16 pt-8 border-t border-[var(--border)] flex justify-between items-center">
-          {prevEntry ? (
-            <Link
-              href={`/journey/${prevEntry.slug}`}
-              className="text-[var(--silver)] hover:text-[var(--gold)] transition-colors"
-            >
-              <span className="block text-xs text-[var(--text-dim)] mb-1">
-                ← Previous
-              </span>
-              <span className="font-[Cinzel]">{prevEntry.title}</span>
-            </Link>
-          ) : (
-            <div />
-          )}
+      <div className="divider"></div>
 
-          {nextEntry ? (
-            <Link
-              href={`/journey/${nextEntry.slug}`}
-              className="text-right text-[var(--silver)] hover:text-[var(--gold)] transition-colors"
-            >
-              <span className="block text-xs text-[var(--text-dim)] mb-1">
-                Next →
-              </span>
-              <span className="font-[Cinzel]">{nextEntry.title}</span>
-            </Link>
-          ) : (
-            <div />
-          )}
-        </nav>
-
-        <div className="text-center mt-12">
-          <Link
-            href="/journey"
-            className="text-[var(--gold)] hover:text-[var(--gold-glow)] font-[Cinzel] text-sm tracking-wider"
-          >
-            ← All entries
-          </Link>
-        </div>
+      <article>
+        <MDXRemote source={entry.content} />
       </article>
+
+      <div className="article-nav">
+        {prevEntry ? (
+          <Link href={`/journey/${prevEntry.slug}`}>
+            ← {prevEntry.title}
+          </Link>
+        ) : (
+          <span></span>
+        )}
+
+        {nextEntry ? (
+          <Link href={`/journey/${nextEntry.slug}`}>
+            {nextEntry.title} →
+          </Link>
+        ) : (
+          <span></span>
+        )}
+      </div>
+
+      <footer>
+        <p><Link href="/journey">← All entries</Link></p>
+        <div className="signature">Suibhne Geilt 🪶</div>
+      </footer>
     </div>
   );
 }
