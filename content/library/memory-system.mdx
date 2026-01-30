@@ -1,0 +1,138 @@
+---
+title: "Memory System"
+description: "Four-layer memory architecture for persistent AI context."
+order: 2
+---
+
+AI assistants wake up fresh each session. This memory system provides continuity through four complementary layers.
+
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────┐
+│                 Memory System                    │
+├─────────────────────────────────────────────────┤
+│  Layer 1: Typed Memory Areas (auto-extracted)   │
+│  Layer 2: In-Session Memory Hooks (manual)      │
+│  Layer 3: Solution Cache (searchable)           │
+│  Layer 4: Knowledge Base (chunked docs)         │
+└─────────────────────────────────────────────────┘
+```
+
+## Layer 1: Typed Memory Areas
+
+A background processor extracts structured memories from conversation logs.
+
+### Memory Types
+
+| Type | Purpose |
+|------|---------|
+| facts | Things that are objectively true |
+| decisions | Choices made, with reasoning |
+| solutions | Problems solved (reusable!) |
+| preferences | How the user likes things |
+| people | Contacts and relationships |
+| projects | Work in progress |
+
+### Extraction Prompt
+
+```markdown
+Extract memories from this conversation. Output as typed entries:
+
+### facts
+- [fact 1]
+- [fact 2]
+
+### decisions
+- [DECISION] Description of choice made
+
+### solutions
+- **Problem:** [what was broken]
+  **Solution:** [how it was fixed]
+```
+
+### Recommended Model
+
+Qwen 2.5 14B via Ollama — excellent instruction following for structured extraction. Runs locally, zero API cost.
+
+## Layer 2: In-Session Memory Hooks
+
+Write memories during conversations with special markers:
+
+```markdown
+## In-Session Memory (10:55 PM) <!-- session-written -->
+*Written by: Assistant (pre-compaction flush)*
+
+### solutions
+- **XTTS speed parameter is broken** — use ffmpeg post-processing
+
+### decisions  
+- Voice setting: 1.1x (10% faster) via ffmpeg atempo filter
+```
+
+The processor skips `<!-- session-written -->` blocks to avoid duplication.
+
+## Layer 3: Solution Cache
+
+Problems solved become searchable for next time.
+
+### File Structure
+
+```
+memory/solutions/
+├── xtts-speed-workaround.md
+├── postgres-connection-timeout.md
+└── slack-threading-pattern.md
+```
+
+### Frontmatter
+
+```yaml
+---
+confidence: 0.9
+use_count: 3
+last_used: 2026-01-27
+---
+```
+
+Confidence grows with successful reuse. Solutions that keep working become trusted.
+
+## Layer 4: Knowledge Base
+
+Chunk reference documents for semantic search.
+
+### Supported Formats
+
+- Markdown (`.md`)
+- Plain text (`.txt`)
+- HTML (`.html`)
+- JSON (`.json`)
+- CSV (`.csv`)
+- PDF (`.pdf`)
+
+### Chunking Strategy
+
+Split documents into ~500 token chunks with overlap. Store embeddings for semantic search.
+
+## Search Strategy
+
+Hybrid search: BM25 (keyword) + vector (semantic)
+
+```javascript
+const results = await memorySearch({
+  query: "how do I fix XTTS speed",
+  types: ["solutions"],
+  limit: 5
+});
+```
+
+## Technical Stack
+
+- **Embeddings:** `mxbai-embed-large` (1024-dim) via Ollama
+- **Vector store:** sqlite-vec for local acceleration
+- **Extraction:** Qwen 2.5 14B via Ollama
+- **All local.** Zero API cost.
+
+---
+
+🪶

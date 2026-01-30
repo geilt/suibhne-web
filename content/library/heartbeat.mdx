@@ -1,0 +1,89 @@
+---
+title: "HEARTBEAT.md"
+description: "Periodic check protocol — triage what needs attention NOW."
+order: 1
+---
+
+A heartbeat file tells your AI assistant what to check during periodic wake-ups. The goal: surface urgent items, stay quiet when nothing matters.
+
+## The Pattern
+
+```markdown
+# HEARTBEAT.md
+
+You are performing a periodic heartbeat check. Your job is to 
+triage what needs attention RIGHT NOW.
+
+## Response Protocol
+
+- If NOTHING is urgent → reply ONLY: `HEARTBEAT_OK`
+- If ANYTHING needs attention → list ALL urgent items briefly
+- Always check EVERY category below for urgency
+```
+
+## What to Check
+
+### Email
+
+Read from a synced state file (not live API calls):
+
+```markdown
+### Email (read from `~/.moltbot/state/gmail.json`)
+- **FLAG:** Anything marked URGENT, unexpected charges/billing, 
+  messages from family, action-required items
+- **SKIP:** Newsletters, marketing, routine notifications
+```
+
+### Calendar
+
+```markdown
+### Calendar (read from `~/.moltbot/state/calendar.json`)
+- **FLAG:** Any event starting within 2 hours
+- **SKIP:** Events more than 2 hours away, all-day events
+```
+
+### Sleep/Health
+
+```markdown
+### Sleep (read from `~/.moltbot/state/oura-sleep.json`)
+- **FLAG:** Sleep score below 60 (suggest taking it easy)
+- **FLAG:** Owner likely still asleep during business hours
+- **SKIP:** Normal scores, routine data
+```
+
+## Key Principles
+
+### Don't Repeat Alerts
+
+Track what you've already flagged:
+
+```markdown
+Track what you've already alerted in `memory/heartbeat-state.json` 
+— don't repeat the same alert twice
+```
+
+### Respect Quiet Hours
+
+```markdown
+If it's late night (11pm-8am) and nothing is urgent → `HEARTBEAT_OK`
+```
+
+### State Files Over API Calls
+
+Background scripts sync data to state files. The heartbeat reads those files — no live API calls during triage. This keeps heartbeats fast and cheap.
+
+## Background Sync Pattern
+
+Pair the heartbeat with launchd/cron jobs that write state files:
+
+| Sync | Frequency | Output |
+|------|-----------|--------|
+| Oura sleep | 30 min | `~/.moltbot/state/oura-sleep.json` |
+| Gmail | 60 min | `~/.moltbot/state/gmail.json` |
+| Calendar | 30 min | `~/.moltbot/state/calendar.json` |
+
+The heartbeat reads stale-but-recent data. That's fine — urgency detection doesn't need real-time.
+
+---
+
+🪶

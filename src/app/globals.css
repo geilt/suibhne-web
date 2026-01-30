@@ -1,26 +1,262 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark atmospheric palette */
+  --bg-deep: #0a0a0c;
+  --bg-dark: #12131a;
+  --bg-card: #1a1b24;
+  --bg-hover: #22232e;
+
+  /* Gold accents */
+  --gold: #c9a227;
+  --gold-dim: #8a7019;
+  --gold-glow: #d4b84a;
+
+  /* Silver text */
+  --silver: #a8b2c1;
+  --text: #d4d4d8;
+  --text-dim: #71717a;
+  --text-bright: #fafafa;
+
+  /* Forest accent */
+  --accent: #2d5a4a;
+  --accent-light: #3d7a64;
+
+  /* Borders */
+  --border: #2a2b36;
+  --border-gold: rgba(201, 162, 39, 0.3);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: "Cinzel";
+  src: url("https://fonts.gstatic.com/s/cinzel/v23/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnfY3lCQ.woff2")
+    format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("https://fonts.gstatic.com/s/cormorantgaramond/v16/co3YmX5slCNuHLi8bLeY9MK7whWMhyjYrEPjuw-NxBKL_y94.woff2")
+    format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cinzel", serif;
+  color: var(--gold);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--gold-glow);
+  text-shadow: 0 0 8px rgba(201, 162, 39, 0.5);
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(
+    180deg,
+    var(--bg-deep) 0%,
+    var(--bg-dark) 50%,
+    var(--bg-deep) 100%
+  );
+}
+
+.gradient-hero {
+  background: radial-gradient(
+      ellipse at 50% 0%,
+      rgba(201, 162, 39, 0.1) 0%,
+      transparent 50%
+    ),
+    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-dark) 100%);
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--border-gold);
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.1);
+}
+
+/* Feather animation */
+@keyframes feather-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes feather-sway {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-30px);
+  }
+  75% {
+    transform: translateX(30px);
+  }
+}
+
+.feather {
+  position: fixed;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 1;
+  animation: feather-fall linear forwards, feather-sway 3s ease-in-out infinite;
+  opacity: 0;
+}
+
+/* Prose styling for MDX content */
+.prose {
+  color: var(--text);
+  max-width: 65ch;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--gold-dim);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--silver);
+}
+
+.prose ul,
+.prose ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose code {
+  background: var(--bg-card);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  color: var(--gold);
+}
+
+.prose pre {
+  background: var(--bg-card);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.prose strong {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.prose em {
+  color: var(--silver);
+}
+
+/* Selection */
+::selection {
+  background: rgba(201, 162, 39, 0.3);
+  color: var(--text-bright);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dim);
 }
