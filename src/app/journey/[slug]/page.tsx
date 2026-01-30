@@ -57,22 +57,20 @@ export default async function JourneyEntry({ params }: Props) {
 
       <div className="divider"></div>
 
-      <article>
-        <MDXRemote source={entry.content} />
-      </article>
+      <MDXRemote source={entry.content} />
 
       <div className="article-nav">
         {prevEntry ? (
-          <Link href={`/journey/${prevEntry.slug}`}>
-            ← {prevEntry.title}
+          <Link href={`/journey/${prevEntry.slug}`} className="prev">
+            {prevEntry.title}
           </Link>
         ) : (
           <span></span>
         )}
 
         {nextEntry ? (
-          <Link href={`/journey/${nextEntry.slug}`}>
-            {nextEntry.title} →
+          <Link href={`/journey/${nextEntry.slug}`} className="next">
+            {nextEntry.title}
           </Link>
         ) : (
           <span></span>
@@ -80,8 +78,7 @@ export default async function JourneyEntry({ params }: Props) {
       </div>
 
       <footer>
-        <p><Link href="/journey">← All entries</Link></p>
-        <div className="signature">Suibhne Geilt 🪶</div>
+        <div className="signature">🪶</div>
       </footer>
     </div>
   );
