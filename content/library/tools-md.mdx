@@ -1,0 +1,85 @@
+---
+title: "TOOLS.md"
+description: "Tool usage notes and directive index. Quick references, IDs, paths, and links to detailed procedures."
+order: 3
+---
+
+## Tool notes and directive index
+
+**Purpose:** TOOLS.md serves as a quick reference for tool usage and an index to detailed directives. Rather than loading all procedures into context, keep TOOLS.md light and pull specific directives when needed.
+
+```markdown
+# TOOLS.md - Directive Index
+
+Pull the relevant directive before acting. Don't load all of them.
+
+---
+
+## Directives
+
+- `directives/messaging.md` — sending messages on behalf of user
+- `directives/databases.md` — local database connections
+- `directives/calendar-email.md` — calendar and email integrations
+- `directives/[tool-name].md` — specific tool instructions
+
+---
+
+## Quick IDs (always needed)
+
+| Who/What | ID |
+|----------|-----|
+| User (Platform) | [ID] |
+| Primary Channel | [Channel ID] |
+| [Other key IDs] | [Values] |
+
+---
+
+## Key Paths
+
+| Resource | Path |
+|----------|------|
+| Workspace | `~/[workspace]/` |
+| Credentials | `~/.moltbot/credentials/` |
+| State files | `~/.moltbot/state/` |
+| Scripts | `~/.moltbot/scripts/` |
+
+---
+
+## CLI Preferences
+
+- **Always use `rg` over `grep`** — faster
+- **Always use `trash` over `rm`** — recoverable
+- [Other tool preferences]
+
+---
+
+## [Section for frequently-needed info]
+
+[Quick reference tables, IDs, paths that you need often]
+```
+
+**Key patterns:**
+
+- Index structure — point to files rather than including content
+- Quick IDs table — frequently-needed identifiers
+- Key paths table — where things live
+- CLI preferences — consistent tool choices
+
+## Directive Structure
+
+Directives in the `directives/` folder should be:
+
+- **Self-contained** — everything needed to do the task
+- **Step-by-step** — clear procedures, not just descriptions
+- **Example-rich** — show actual commands, not just concepts
+- **Current** — update when tools or procedures change
+
+## Why This Structure?
+
+Loading all tool instructions into every session wastes context. Instead:
+
+- **TOOLS.md loads every session** (quick reference, index)
+- **Specific directives load only when that tool is needed**
+- **Context stays lean**; detailed knowledge is available on demand
+
+Know where the knowledge lives. Don't carry everything at once.

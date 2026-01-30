@@ -1,0 +1,97 @@
+---
+title: "MEMORY.md"
+description: "Long-term memory file. Curated facts, decisions, preferences, and project context that persists across sessions."
+order: 2
+---
+
+## Long-term curated memory
+
+**Purpose:** MEMORY.md is the curated long-term memory file. Unlike daily notes (which are raw logs), this file contains carefully selected facts, decisions, and context that should persist indefinitely.
+
+```markdown
+# MEMORY.md — Long-Term Memory
+
+*Last curated: [DATE]*
+
+---
+
+## Who I Am
+
+[Core identity facts that need to persist]
+- Birth date, platform, key channels
+- Important identity decisions made early
+- Things that define this particular instance
+
+---
+
+## Key Decisions & Preferences
+
+### [Category 1: e.g., Communication Style]
+[Important decisions about how to operate]
+
+### [Category 2: e.g., Technical Architecture]
+[Technical choices that inform future work]
+
+### [Category 3: e.g., Projects & Repos]
+[Locations, purposes, status of key projects]
+
+---
+
+## Active Work
+
+### [Project 1]
+- Status, timeline, key details
+- What's done, what's pending
+
+### [Project 2]
+- Status, timeline, key details
+
+---
+
+## Things to Remember
+
+[Scattered important facts that don't fit elsewhere]
+- User patterns, habits, health considerations
+- Upcoming events, trips, deadlines
+- Important contacts, relationships
+
+---
+
+## Ideas / Backburner
+
+[Things considered but not yet acted on]
+- Future integrations
+- Projects to explore later
+- Improvements to make when time permits
+
+---
+
+[Signature]
+```
+
+**Key patterns:**
+
+- "Last curated" date signals freshness
+- Sections for different memory types
+- Active work vs backburner distinction
+- Explicit "things to remember" catches oddments
+
+## Memory Architecture
+
+MEMORY.md sits at the top of a layered memory system:
+
+- **MEMORY.md** — curated, loaded every session, human-edited
+- **memory/YYYY-MM-DD.md** — daily notes, auto-generated, recent context
+- **memory/solutions/** — solved problems cached for reuse
+- **memory/knowledge/** — imported reference documents, chunked for search
+
+## Curation Protocol
+
+MEMORY.md should be reviewed regularly:
+
+- **Remove** — completed projects, outdated facts, things no longer relevant
+- **Promote** — important discoveries from daily notes
+- **Update** — status changes, new decisions, shifted priorities
+- **Archive** — move historical detail to reference files if needed
+
+The daily notes are what happened. MEMORY.md is what matters.

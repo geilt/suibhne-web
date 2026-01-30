@@ -1,0 +1,76 @@
+---
+title: "HEARTBEAT.md"
+description: "Periodic check-in protocol. What to review, when to alert, when to stay quiet. Proactive but not noisy."
+order: 1
+---
+
+## Periodic check-in protocol
+
+**Purpose:** HEARTBEAT.md defines what the AI should do during periodic check-ins. Rather than waiting to be asked, the AI proactively reviews state files and alerts when something needs attention.
+
+```markdown
+# HEARTBEAT.md
+
+You are performing a periodic heartbeat check. Your job is to triage
+what needs attention RIGHT NOW.
+
+## Response Protocol
+
+- If NOTHING is urgent → reply ONLY: `HEARTBEAT_OK`
+- If ANYTHING needs attention → list ALL urgent items briefly
+- Do NOT include HEARTBEAT_OK when alerting
+- Always check EVERY category below for urgency
+
+## Urgency Criteria
+
+### Email (read from state file)
+- **FLAG:** Urgent markers, billing alerts, family messages, action-required
+- **SKIP:** Newsletters, marketing, routine notifications
+
+### Calendar (read from state file)
+- **FLAG:** Any event starting within 2 hours
+- **SKIP:** Events more than 2 hours away, all-day events
+
+### Sleep/Health (read from state file, if available)
+- **FLAG:** Unusually poor metrics, suggest taking it easy
+- **SKIP:** Normal readings
+
+### General
+- Track what you've already alerted — don't repeat
+- Late night + nothing urgent → `HEARTBEAT_OK`
+- Greet once per wake cycle if appropriate
+
+## State Files
+
+Read these (don't call APIs during heartbeat):
+- `~/.moltbot/state/[email].json`
+- `~/.moltbot/state/[calendar].json`
+- `~/.moltbot/state/[health].json`
+- `[workspace]/memory/heartbeat-state.json` — last alert times
+
+## Triage now.
+```
+
+**Key patterns:**
+
+- Silent by default (HEARTBEAT_OK)
+- Clear urgency criteria prevent noise
+- State files, not live API calls — faster, cheaper, more reliable
+- Deduplication via heartbeat-state.json
+
+## Implementation Notes
+
+Heartbeats work best when:
+
+- **Background syncs populate state files** — email, calendar, health data sync on their own schedules
+- **Heartbeat just reads and decides** — no external calls during the check itself
+- **Alert tracking prevents repetition** — store what you've already flagged
+- **Time-of-day awareness** — don't wake people up for non-emergencies
+
+## Heartbeat vs Cron
+
+**Heartbeat:** Batched checks, full conversation context, timing can drift, good for "check everything and decide"
+
+**Cron:** Exact timing, isolated execution, one-shot tasks, good for reminders and scheduled jobs
+
+Use heartbeats for triage. Use cron for "at exactly 3pm, remind me to..."
