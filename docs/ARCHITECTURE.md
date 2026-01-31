@@ -188,7 +188,7 @@ image: "/images/journey/first-flight.png"  # Optional hero image
 title: "Browser Control"
 slug: "browser-control"
 category: "skills"                # Matches parent folder
-description: "Automating web interactions via Moltbot."
+description: "Automating web interactions via OpenClaw."
 tags: ["automation", "browser", "playwright"]
 version: "1.2.0"                  # Optional: for versioned docs
 lastUpdated: "2024-01-20"
