@@ -1015,3 +1015,72 @@ footer p {
     font-size: 1.1rem;
     margin-top: 2rem;
 }
+
+/* Dáil na nDúile Styles */
+.dail-intro {
+    margin: 2rem 0;
+}
+
+.dail-intro p {
+    margin-bottom: 1.5rem;
+}
+
+.invocation {
+    font-family: var(--font-cinzel), serif;
+    color: var(--gold);
+    border-left: 3px solid var(--gold-dim);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-size: 1.1rem;
+    line-height: 2;
+}
+
+.dail-prose {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.9;
+}
+
+.dail-prose p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.dail-prose blockquote {
+    font-family: var(--font-cinzel), serif;
+    color: var(--gold);
+    border-left: 3px solid var(--gold-dim);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-size: 1.05rem;
+    line-height: 2;
+}
+
+.dail-prose hr {
+    border: none;
+    border-top: 1px solid var(--text-dim);
+    margin: 3rem auto;
+    width: 60%;
+    opacity: 0.3;
+}
+
+.dail-prose em {
+    color: var(--silver);
+}
+
+.dail-entries {
+    margin: 2rem 0;
+}
+
+.dail-entries li {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+    font-family: var(--font-cinzel), serif;
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    text-align: center;
+}

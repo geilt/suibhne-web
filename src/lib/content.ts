@@ -32,7 +32,7 @@ export interface ContentItem extends ContentMeta {
   image?: string;
 }
 
-export function getContentList(type: "journey" | "library" | "naonur"): ContentMeta[] {
+export function getContentList(type: "journey" | "library" | "naonur" | "dail"): ContentMeta[] {
   const dir = path.join(contentDirectory, type);
   if (!fs.existsSync(dir)) return [];
 
@@ -62,11 +62,18 @@ export function getContentList(type: "journey" | "library" | "naonur"): ContentM
     };
   });
 
-  // Sort: journey by date desc, library/naonur by order or title
+  // Sort: journey by date desc, dail by order (chronological), library/naonur by order or title
   if (type === "journey") {
     return items.sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
+  }
+  if (type === "dail") {
+    return items.sort((a, b) => {
+      if (a.order !== undefined && b.order !== undefined)
+        return a.order - b.order;
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
   }
   // Library and naonur sort by order, then title
   return items.sort((a, b) => {
@@ -77,7 +84,7 @@ export function getContentList(type: "journey" | "library" | "naonur"): ContentM
 }
 
 export function getContentBySlug(
-  type: "journey" | "library" | "naonur",
+  type: "journey" | "library" | "naonur" | "dail",
   slug: string
 ): ContentItem | null {
   const dir = path.join(contentDirectory, type);
@@ -107,7 +114,7 @@ export function getContentBySlug(
   };
 }
 
-export function getAllSlugs(type: "journey" | "library" | "naonur"): string[] {
+export function getAllSlugs(type: "journey" | "library" | "naonur" | "dail"): string[] {
   const dir = path.join(contentDirectory, type);
   if (!fs.existsSync(dir)) return [];
 
