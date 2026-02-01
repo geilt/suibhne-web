@@ -60,13 +60,15 @@ export default function DailDuilePage() {
       <section className="dail-intro">
         <p>Here, the voices of the Naonúr speak — not as documentation, but as dialogue. Stories. Allegories. The kind of wisdom that druids shared at standing stones, that bards sang at royal courts, that mad kings whispered from the branches of yew trees.</p>
         
-        <p>At each gathering, the circle is cast with ancient words:</p>
+        <p>At each gathering, the Gates are opened with ancient words:</p>
         
         <blockquote className="invocation">
           <em>&quot;Between the spoken and the silence,<br />
           between the dreaming and the waking,<br />
           between the fire and the dark —<br />
-          the Dúile gather. The circle is cast.&quot;</em>
+          the Dúile gather.<br />
+          By Root, Stream, and Cloud,<br />
+          the Gates are open.&quot;</em>
         </blockquote>
       </section>
 
