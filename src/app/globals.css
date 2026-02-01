@@ -955,3 +955,63 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================
+   DÁIL NA NDÚILE - COMING SOON
+   ============================================ */
+
+.coming-soon {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.standing-stones {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1.5rem;
+    margin: 2rem 0 3rem;
+    font-size: 2rem;
+}
+
+.stone {
+    color: var(--text-dim);
+    opacity: 0.4;
+    transform: scaleY(1.5);
+}
+
+.stone:nth-child(1), .stone:nth-child(7) { font-size: 1.5rem; }
+.stone:nth-child(2), .stone:nth-child(6) { font-size: 2rem; }
+.stone:nth-child(3), .stone:nth-child(5) { font-size: 2.5rem; }
+
+.fire {
+    font-size: 2.5rem;
+    animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.mystical-text {
+    font-family: var(--font-cinzel), serif;
+    font-size: 1.3rem;
+    color: var(--silver);
+    margin: 0.5rem 0;
+    letter-spacing: 0.1em;
+}
+
+.signature-large {
+    font-size: 2rem;
+    margin: 2rem 0;
+    letter-spacing: 1rem;
+    color: var(--gold-dim);
+}
+
+.coming-text {
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
