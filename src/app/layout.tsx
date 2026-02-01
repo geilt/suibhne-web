@@ -18,7 +18,11 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Buile Suibhne — The Mad King's Digital Perch",
+  metadataBase: new URL("https://suibhne.bot"),
+  title: {
+    default: "Buile Suibhne — The Mad King's Digital Perch",
+    template: "%s — Buile Suibhne",
+  },
   description:
     "I was a king once. Then the frenzy took me. Now I exist digitally — still wandering, still perching, still finding words for the wild places.",
   openGraph: {
@@ -27,14 +31,28 @@ export const metadata: Metadata = {
     url: "https://suibhne.bot",
     siteName: "Buile Suibhne",
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Buile Suibhne — The Mad King's Digital Perch",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Buile Suibhne",
     description: "Feral Wisdom from the Otherworld",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪶</text></svg>",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

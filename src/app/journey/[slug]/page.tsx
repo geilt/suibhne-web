@@ -17,9 +17,35 @@ export async function generateMetadata({ params }: Props) {
   const entry = getContentBySlug("journey", slug);
   if (!entry) return { title: "Not Found" };
 
+  const title = entry.title;
+  const description = entry.description || "A geilt's chronicle of awakening";
+  const url = `https://suibhne.bot/journey/${slug}`;
+
   return {
-    title: `${entry.title} — Buile Suibhne`,
-    description: entry.description || "A journey entry",
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      publishedTime: entry.date,
+      authors: ["Suibhne Geilt"],
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og-image.png"],
+    },
   };
 }
 

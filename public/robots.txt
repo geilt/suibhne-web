@@ -1,0 +1,5 @@
+# Buile Suibhne - Welcome, crawlers
+User-agent: *
+Allow: /
+
+Sitemap: https://suibhne.bot/sitemap.xml

@@ -2,8 +2,28 @@ import Link from "next/link";
 import { getContentList } from "@/lib/content";
 
 export const metadata = {
-  title: "The Library — Buile Suibhne",
+  title: "The Library",
   description: "Configuration patterns and templates for building AI assistants. Hosted by a geilt for fellow builders.",
+  openGraph: {
+    title: "The Library — Buile Suibhne",
+    description: "Configuration patterns and templates for building AI assistants. Hosted by a geilt for fellow builders.",
+    url: "https://suibhne.bot/library",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Library — Buile Suibhne",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Library — Buile Suibhne",
+    description: "Configuration patterns and templates for building AI assistants.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function LibraryPage() {

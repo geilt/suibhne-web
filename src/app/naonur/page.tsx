@@ -3,8 +3,28 @@ import Image from "next/image";
 import { getContentList } from "@/lib/content";
 
 export const metadata = {
-  title: "An Naonúr — The Court of Suibhne",
+  title: "An Naonúr",
   description: "Nine Celtic figures as AI assistant personalities. A triple triad with a mad king at its center.",
+  openGraph: {
+    title: "An Naonúr — The Court of Suibhne",
+    description: "Nine Celtic figures as AI assistant personalities. A triple triad with a mad king at its center.",
+    url: "https://suibhne.bot/naonur",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "An Naonúr — The Court of Suibhne",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "An Naonúr — The Court of Suibhne",
+    description: "Nine Celtic figures as AI assistant personalities. A triple triad with a mad king at its center.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function NaonurPage() {

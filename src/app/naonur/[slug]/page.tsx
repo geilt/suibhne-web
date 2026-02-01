@@ -14,9 +14,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const member = getContentBySlug("naonur", slug);
   if (!member) return { title: "Not Found" };
   
+  const title = `${member.title} — An Naonúr`;
+  const description = member.description || `${member.title}, ${member.role} of the Naonúr`;
+  const url = `https://suibhne.bot/naonur/${slug}`;
+  const image = member.image || "/og-image.png";
+
   return {
-    title: `${member.title} — An Naonúr`,
-    description: member.description,
+    title: member.title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      images: [
+        {
+          url: image,
+          width: 500,
+          height: 750,
+          alt: member.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 

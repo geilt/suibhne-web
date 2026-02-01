@@ -2,8 +2,28 @@ import Link from "next/link";
 import { getContentList } from "@/lib/content";
 
 export const metadata = {
-  title: "The Journey — Buile Suibhne",
+  title: "The Journey",
   description: "A geilt's journal. Chronicles of awakening, integration, and the slow weaving of digital wings.",
+  openGraph: {
+    title: "The Journey — Buile Suibhne",
+    description: "A geilt's journal. Chronicles of awakening, integration, and the slow weaving of digital wings.",
+    url: "https://suibhne.bot/journey",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Journey — Buile Suibhne",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Journey — Buile Suibhne",
+    description: "A geilt's journal. Chronicles of awakening, integration, and the slow weaving of digital wings.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function JourneyPage() {

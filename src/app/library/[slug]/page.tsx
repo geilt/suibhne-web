@@ -17,9 +17,33 @@ export async function generateMetadata({ params }: Props) {
   const doc = getContentBySlug("library", slug);
   if (!doc) return { title: "Not Found" };
 
+  const title = doc.title;
+  const description = doc.description || "OpenClaw configuration templates and patterns";
+  const url = `https://suibhne.bot/library/${slug}`;
+
   return {
-    title: `${doc.title} — Buile Suibhne Library`,
-    description: doc.description || "Library documentation",
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og-image.png"],
+    },
   };
 }
 
