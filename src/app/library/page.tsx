@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getContentList } from "@/lib/content";
 
 export const metadata = {
@@ -44,7 +45,15 @@ export default function LibraryPage() {
       </nav>
 
       <header>
-        <span className="icon">📚</span>
+        <div className="header-sigil">
+          <Image
+            src="/sigils/XX-Library-Sigil.png"
+            alt="The Library"
+            width={120}
+            height={120}
+            className="sigil"
+          />
+        </div>
         <h1>The Library</h1>
         <div className="subtitle">Patterns for building AI assistants</div>
       </header>

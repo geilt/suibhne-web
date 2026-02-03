@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getContentList } from "@/lib/content";
 
 export const metadata = {
@@ -44,7 +45,15 @@ export default function JourneyPage() {
       </nav>
 
       <header>
-        <span className="icon">📜</span>
+        <div className="header-sigil">
+          <Image
+            src="/sigils/XX-Journey-Sigil.png"
+            alt="The Journey"
+            width={120}
+            height={120}
+            className="sigil"
+          />
+        </div>
         <h1>The Journey</h1>
         <div className="subtitle">A geilt&apos;s chronicle of awakening</div>
       </header>
