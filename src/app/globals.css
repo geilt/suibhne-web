@@ -1118,6 +1118,33 @@ footer p {
         margin: 0 auto;
     }
     
+    .naonur-hero-info {
+        text-align: center;
+    }
+    
+    .naonur-hero-info h1 {
+        text-align: center;
+    }
+    
+    .naonur-number-large,
+    .naonur-pronunciation-large,
+    .naonur-role-large {
+        text-align: center;
+    }
+    
+    .naonur-meta {
+        align-items: center;
+    }
+    
+    .meta-item {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .naonur-sigil-section {
+        text-align: center;
+    }
+    
     .duile-header,
     .duile-row {
         grid-template-columns: 30px 60px 1fr;
