@@ -1072,6 +1072,31 @@ footer p {
     margin-top: 2rem;
 }
 
+/* Naonúr Sigil Section */
+.naonur-sigil-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(18, 19, 26, 0.4);
+    border: 1px solid rgba(201, 162, 39, 0.15);
+    border-radius: 8px;
+}
+
+.naonur-sigil-container {
+    margin-bottom: 1rem;
+}
+
+.naonur-sigil-blurb {
+    font-style: italic;
+    color: var(--silver);
+    text-align: center;
+    font-size: 1rem;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
 /* Responsive for Naonúr */
 @media (max-width: 768px) {
     .naonur-card-center {

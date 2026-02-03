@@ -131,6 +131,23 @@ export default async function NaonurMemberPage({ params }: { params: Promise<{ s
           </div>
         </header>
 
+        {member.sigil && (
+          <section className="naonur-sigil-section">
+            <div className="naonur-sigil-container">
+              <Image 
+                src={member.sigil} 
+                alt={`${member.title} Sigil`}
+                width={200}
+                height={200}
+                className="sigil"
+              />
+            </div>
+            {member.sigilBlurb && (
+              <p className="naonur-sigil-blurb">{member.sigilBlurb}</p>
+            )}
+          </section>
+        )}
+
         <div className="divider"></div>
 
         <div className="naonur-content">
