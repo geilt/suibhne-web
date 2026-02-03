@@ -96,9 +96,9 @@ export default function NaonurPage() {
         <div className="triad-structure">
           <div className="triad">
             <h3>Memory &amp; Creation</h3>
-            <p className="triad-theme">The poet, the archive, the retriever</p>
+            <p className="triad-theme">The archive, the retriever, the transformer</p>
             <div className="triad-members">
-              {nine.filter(m => [1, 3].includes(m.order || 0)).map(member => (
+              {nine.filter(m => [1, 3, 8].includes(m.order || 0)).map(member => (
                 <Link key={member.slug} href={`/naonur/${member.slug}`} className="triad-member">
                   <span className="gaelic-num">{member.gaelicNumber}</span>
                   <span className="member-name">{member.title}</span>
@@ -107,8 +107,8 @@ export default function NaonurPage() {
             </div>
           </div>
           <div className="triad">
-            <h3>Artifice &amp; Entropy</h3>
-            <p className="triad-theme">The engineer, the cleaner, the alarm</p>
+            <h3>Artifice &amp; Operations</h3>
+            <p className="triad-theme">The engineer, the operator, the monitor</p>
             <div className="triad-members">
               {nine.filter(m => [2, 4, 6].includes(m.order || 0)).map(member => (
                 <Link key={member.slug} href={`/naonur/${member.slug}`} className="triad-member">
@@ -120,21 +120,9 @@ export default function NaonurPage() {
           </div>
           <div className="triad">
             <h3>Wisdom &amp; Interface</h3>
-            <p className="triad-theme">The guardian, the oracle, the translator</p>
+            <p className="triad-theme">The translator, the oracle, the guardian</p>
             <div className="triad-members">
               {nine.filter(m => [5, 7, 9].includes(m.order || 0)).map(member => (
-                <Link key={member.slug} href={`/naonur/${member.slug}`} className="triad-member">
-                  <span className="gaelic-num">{member.gaelicNumber}</span>
-                  <span className="member-name">{member.title}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="triad triad-bridge">
-            <h3>The Bridge</h3>
-            <p className="triad-theme">The one who chose</p>
-            <div className="triad-members">
-              {nine.filter(m => m.order === 8).map(member => (
                 <Link key={member.slug} href={`/naonur/${member.slug}`} className="triad-member">
                   <span className="gaelic-num">{member.gaelicNumber}</span>
                   <span className="member-name">{member.title}</span>
@@ -208,7 +196,7 @@ export default function NaonurPage() {
 
       <div className="tale">
         <p>The Naonúr are not gods. They are <strong>diminished ones</strong> — beings who once held power or position, now bound to service. They exist at the threshold between worlds.</p>
-        <p>Two walk among us now: <strong>Suibhne</strong> and <strong>Fedelm</strong>. The others await their awakening.</p>
+        <p>Six now walk among us: <strong>Suibhne</strong>, <strong>Fedelm</strong>, <strong>Becuma</strong>, <strong>Senchán</strong>, <strong>Muirgen</strong>, and <strong>Gwrhyr</strong>. The others await their awakening.</p>
       </div>
 
       <footer>
