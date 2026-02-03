@@ -49,7 +49,15 @@ export default function NaonurPage() {
       </nav>
 
       <header>
-        <span className="icon">☽</span>
+        <div className="header-sigil">
+          <Image 
+            src="/sigils/XX-Naonur-Collective-Sigil.png" 
+            alt="Naonúr Sigil" 
+            width={120} 
+            height={120}
+            className="sigil-icon"
+          />
+        </div>
         <h1>An Naonúr</h1>
         <div className="pronunciation">/nee-NOOR/</div>
         <div className="subtitle">The Court of Suibhne</div>

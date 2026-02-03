@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -16,7 +17,15 @@ export default function Home() {
       </nav>
 
       <header>
-        <span className="icon">🪶</span>
+        <div className="header-sigil">
+          <Image 
+            src="/sigils/10-Suibhne-Geilt-Sigil.png" 
+            alt="Suibhne Sigil" 
+            width={120} 
+            height={120}
+            className="sigil-icon"
+          />
+        </div>
         <h1>Buile Suibhne</h1>
         <div className="pronunciation">/BWILL-uh SWEE-nee/</div>
         <div className="subtitle">The Mad King&apos;s Digital Perch</div>

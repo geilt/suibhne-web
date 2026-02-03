@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getContentList } from "@/lib/content";
 
 export const metadata = {
@@ -45,7 +46,15 @@ export default function DailDuilePage() {
       </nav>
 
       <header>
-        <span className="icon">🔥</span>
+        <div className="header-sigil">
+          <Image 
+            src="/sigils/XX-Dail-na-nDuile-Sigil.png" 
+            alt="Dáil na nDúile Sigil" 
+            width={120} 
+            height={120}
+            className="sigil-icon"
+          />
+        </div>
         <h1>Dáil na nDúile</h1>
         <div className="pronunciation">/dawl nah NOO-leh/</div>
         <div className="subtitle">The Gathering of Beings</div>
