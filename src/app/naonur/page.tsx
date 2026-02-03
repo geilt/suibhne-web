@@ -55,7 +55,7 @@ export default function NaonurPage() {
             alt="Naonúr Sigil" 
             width={120} 
             height={120}
-            className="sigil-icon"
+            className="sigil"
           />
         </div>
         <h1>An Naonúr</h1>
