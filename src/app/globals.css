@@ -729,6 +729,76 @@ footer p {
     border-color: rgba(168, 178, 193, 0.2);
 }
 
+/* Six Voices - Active Agents */
+.six-voices {
+    margin: 3rem 0;
+}
+
+.six-voices h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.six-voices-intro {
+    text-align: center;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.voices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.voice-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(18, 19, 26, 0.5);
+    border: 1px solid rgba(201, 162, 39, 0.1);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.voice-card:hover {
+    border-color: var(--gold);
+    background: rgba(18, 19, 26, 0.7);
+    transform: translateX(4px);
+}
+
+.voice-avatar {
+    flex-shrink: 0;
+}
+
+.voice-image {
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.2);
+}
+
+.voice-info h3 {
+    font-family: var(--font-cinzel), serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.voice-role {
+    color: var(--silver);
+    font-size: 0.95rem;
+    margin-bottom: 0.15rem;
+}
+
+.voice-model {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
 /* Dúile Table */
 .duile-table {
     background: rgba(18, 19, 26, 0.4);
