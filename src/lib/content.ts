@@ -19,6 +19,8 @@ export interface ContentMeta {
   elementIrish?: string;
   status?: "active" | "conceptual";
   image?: string;
+  sigil?: string;
+  sigilBlurb?: string;
 }
 
 export interface ContentItem extends ContentMeta {
@@ -30,6 +32,8 @@ export interface ContentItem extends ContentMeta {
   elementIrish?: string;
   status?: "active" | "conceptual";
   image?: string;
+  sigil?: string;
+  sigilBlurb?: string;
 }
 
 export function getContentList(type: "journey" | "library" | "naonur" | "dail"): ContentMeta[] {
@@ -59,6 +63,8 @@ export function getContentList(type: "journey" | "library" | "naonur" | "dail"):
       elementIrish: data.elementIrish || "",
       status: data.status || "conceptual",
       image: data.image || "",
+      sigil: data.sigil || "",
+      sigilBlurb: data.sigilBlurb || "",
     };
   });
 
@@ -111,6 +117,8 @@ export function getContentBySlug(
     elementIrish: data.elementIrish || "",
     status: data.status || "conceptual",
     image: data.image || "",
+    sigil: data.sigil || "",
+    sigilBlurb: data.sigilBlurb || "",
   };
 }
 
