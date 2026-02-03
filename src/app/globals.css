@@ -146,6 +146,22 @@ header {
         0 0 80px rgba(201, 162, 39, 0.2);
 }
 
+/* Square sigils - for section icons like Library, Journey */
+.sigil {
+    border-radius: 8px;
+    box-shadow: 
+        0 0 30px rgba(201, 162, 39, 0.3),
+        0 0 60px rgba(201, 162, 39, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sigil:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 40px rgba(201, 162, 39, 0.4),
+        0 0 80px rgba(201, 162, 39, 0.2);
+}
+
 h1 {
     font-family: var(--font-cinzel), serif;
     font-size: clamp(1.8rem, 6vw, 2.5rem);
