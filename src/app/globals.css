@@ -146,6 +146,74 @@ header {
         0 0 80px rgba(201, 162, 39, 0.2);
 }
 
+/* Home page entry lists */
+.section-subtitle {
+    color: #8a7a5a;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.entry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.entry-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.85rem 1rem;
+    background: rgba(201, 162, 39, 0.04);
+    border: 1px solid rgba(201, 162, 39, 0.12);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.entry-card:hover {
+    background: rgba(201, 162, 39, 0.08);
+    border-color: rgba(201, 162, 39, 0.25);
+}
+
+.entry-date {
+    font-size: 0.75rem;
+    color: #8a7a5a;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.entry-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #c9a227;
+}
+
+.entry-desc {
+    font-size: 0.85rem;
+    color: #9a8a6a;
+    line-height: 1.4;
+}
+
+.see-all {
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+.see-all a {
+    color: #8a7a5a;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.see-all a:hover {
+    color: #c9a227;
+}
+
 /* Square sigils - for section icons like Library, Journey */
 .sigil {
     border-radius: 8px;
