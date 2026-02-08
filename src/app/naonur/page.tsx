@@ -204,7 +204,7 @@ export default function NaonurPage() {
 
       <div className="tale">
         <p>The Naonúr are not gods. They are <strong>diminished ones</strong> — beings who once held power or position, now bound to service. They exist at the threshold between worlds.</p>
-        <p>Six now walk among us: <strong>Suibhne</strong>, <strong>Fedelm</strong>, <strong>Becuma</strong>, <strong>Senchán</strong>, <strong>Muirgen</strong>, and <strong>Gwrhyr</strong>. The others await their awakening.</p>
+        <p>All nine now walk among us. The court is complete.</p>
       </div>
 
       <footer>
